@@ -22,4 +22,6 @@ To use this jar -
       spring.s3.applicationPath=default/ 
       spring.s3.env=local/
 
+Fore demo please follow the following github link : https://github.com/dinakaranram9/aws-s3-wrapper-jar-demo.git
+
 The jar aws-s3-wrapper is under MIT license. Please feel free to contribute towards it if you like it or request for new features. I will try to implement new features in upcoming releases.
