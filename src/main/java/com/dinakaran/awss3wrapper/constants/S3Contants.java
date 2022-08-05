@@ -1,7 +1,10 @@
 package com.dinakaran.awss3wrapper.constants;
 
 import lombok.Getter;
-
+/*Contains constants used across jar
+* @author Dinakaran Ramadurai
+* @since 2.0
+*/
 @Getter
 public enum S3Contants {
 	FILE_NAME("FILE_NAME", "FN-001"),

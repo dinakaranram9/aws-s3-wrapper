@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>io.github.dinakaranram9</groupId>
 	<artifactId>aws-s3-wrapper</artifactId>
-	<version>0.0.1</version>
+	<version>0.1.11</version>
 	<name>aws-s3-wrapper</name>
 	<description>wrapper library for amazon s3</description>
 	<url>https://github.com/dinakaranram9/aws-s3-wrapper</url>
@@ -77,6 +77,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<classifier>exec</classifier>
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
@@ -123,6 +126,24 @@
 						<phase>verify</phase>
 						<goals>
 							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
 						</goals>
 					</execution>
 				</executions>

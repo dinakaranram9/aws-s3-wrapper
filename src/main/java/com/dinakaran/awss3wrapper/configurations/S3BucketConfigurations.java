@@ -11,6 +11,12 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 
+/*Configuration class to connect to s3bucket and create bean for
+ * AmazonS3 object 
+* @author Dinakaran Ramadurai
+* @see AmazonS3.class
+* @since 2.0
+*/
 @Configuration
 public class S3BucketConfigurations {
 

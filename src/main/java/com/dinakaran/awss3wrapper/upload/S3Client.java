@@ -8,6 +8,10 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.dinakaran.awss3wrapper.domain.S3File;
 
+/*Interface for S3upload and S3download
+* @author Dinakaran Ramadurai
+* @since 2.0
+*/
 public interface S3Client {
 
 	public String uploadFile(MultipartFile file) throws AmazonServiceException, SdkClientException, IOException;

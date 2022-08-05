@@ -19,6 +19,7 @@ import com.dinakaran.awss3wrapper.constants.S3Contants;
 import com.dinakaran.awss3wrapper.domain.S3File;
 import com.dinakaran.awss3wrapper.upload.S3Client;
 
+
 public class S3ClientImpl implements S3Client {
 
 	@Value("${spring.s3.env}")
@@ -30,7 +31,11 @@ public class S3ClientImpl implements S3Client {
 
 	@Autowired
 	private AmazonS3 amazonS3Client;
-
+	
+	/*Uploads the file to S3 bucket by taking file  
+	* @author Dinakaran Ramadurai
+	* @since 2.0
+	*/
 	public String uploadFile(MultipartFile file) throws AmazonServiceException, SdkClientException, IOException {
 		ObjectMetadata metadata = new ObjectMetadata();
 		metadata.setContentLength(file.getSize());
@@ -43,7 +48,11 @@ public class S3ClientImpl implements S3Client {
 		amazonS3Client.putObject(bucketName, keyName, file.getInputStream(), metadata);
 		return keyName;
 	}
-
+	
+	/*generates unique file and path for each file 
+	* @author Dinakaran Ramadurai
+	* @since 2.0
+	*/
 	private String generateFileKey(String fileName) {
 		StringBuffer key = new StringBuffer();
 		key.append(applicationPath);
@@ -63,7 +72,11 @@ public class S3ClientImpl implements S3Client {
 		return Optional.ofNullable(filename).filter(f -> f.contains("."))
 				.map(f -> f.substring(filename.lastIndexOf(".") + 1));
 	}
-
+	
+	/*downlads the file from S3 bucket by using the path specified
+	* @author Dinakaran Ramadurai
+	* @since 2.0
+	*/
 	@Override
 	public S3File downloadFile(String path) {
 		S3File s3File = new S3File();
